@@ -14,7 +14,8 @@ $statement = $pdo->query($query);
 /**
  * Traz somente uma coluna
  */
-var_dump($statement->fetchColumn(1)); exit();
+var_dump($statement->fetchColumn(1));
+exit();
 
 /**
  * Caso precise carregar individual

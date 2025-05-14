@@ -6,5 +6,22 @@
     },
     "require": {
         "ext-pdo": "*"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.13",
+        "phan/phan": "^5.4"
+    },
+    "scripts": {
+        "phan": "phan --allow-polyfill-parser",
+        "cs": "phpcs --standard=PSR12 *.php",
+        "cbf": "phpcbf --standard=PSR12 *.php",
+        "check": [
+            "@phan",
+            "@cs",
+            "@cbf"
+        ]
+    },
+    "scripts-descriptions": {
+        "check": "Roda as verificações do código. PHAN, PHPCS"
     }
 }
