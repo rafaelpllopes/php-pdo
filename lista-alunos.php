@@ -15,7 +15,6 @@ $statement = $pdo->query($query);
  * Traz somente uma coluna
  */
 var_dump($statement->fetchColumn(1));
-exit();
 
 /**
  * Caso precise carregar individual
@@ -26,7 +25,7 @@ while ($studentData = $statement->fetch(PDO::FETCH_ASSOC)) {
         $studentData['name'],
         new DateTimeImmutable($studentData['birth_date'])
     );
-    echo $student->age() . PHP_EOL;
+    echo "{$student->name()}, tem {$student->age()} anos" . PHP_EOL;
 }
 
 
