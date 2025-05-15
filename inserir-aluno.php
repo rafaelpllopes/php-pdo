@@ -1,11 +1,11 @@
 <?php
 
 use Alura\Pdo\Domain\Model\Student;
+use Alura\Pdo\Infrastructure\Persistence\ConnectionCreator;
 
 require_once 'vendor/autoload.php';
 
-$databasePath = __DIR__ . 'banco.sqlite';
-$pdo = new PDO("sqlite:$databasePath");
+$pdo = ConnectionCreator::createConnection();
 
 /**
  * Criar uma camada de segurançã no codigo, não deixa inserir direto.
@@ -39,5 +39,3 @@ $statement->bindValue(':birth_date', $student->birthDate()->format('Y-m-d'));
 if ($statement->execute()) {
     echo "Estudante cadastrado com sucesso." . PHP_EOL;
 }
-
-
